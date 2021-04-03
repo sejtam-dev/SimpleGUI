@@ -6,12 +6,10 @@ Maven
 
 Repository
 ```xml
-<repositories>
-    <repository>
-         <id>Sejtam_</id>
-         <url>https://repo.repsy.io/mvn/sejtam10/github</url>
-    </repository>
-</repositories>
+<repository>
+     <id>Sejtam_</id>
+     <url>https://repo.repsy.io/mvn/sejtam10/github</url>
+</repository>
 ```
 
 Dependency
