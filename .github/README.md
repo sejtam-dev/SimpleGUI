@@ -9,7 +9,7 @@ Repository
 <repositories>
     <repository>
          <id>Sejtam_</id>
-         <url>https://repo.repsy.io/mvn/sejtam10/default</url>
+         <url>https://repo.repsy.io/mvn/sejtam10/github</url>
     </repository>
 </repositories>
 ```
@@ -30,7 +30,7 @@ Gradle
 Repository
 ```groovy
 repositories {
-    maven { url 'https://repo.repsy.io/mvn/sejtam10/default' }
+    maven { url 'https://repo.repsy.io/mvn/sejtam10/github' }
 }
 ```
 
