@@ -72,11 +72,11 @@ public class PaginationInventory extends SimpleInventory {
 
     // Items getter methods
     public ItemStack getLeftArrow() {
-        return new ItemBuilder(HeadUtilities.getSkull("5ae78451bf26cf49fd5f54cd8f2b37cd25c92e5ca76298b3634cb541e9ad89")).setName("&3Previous Page").build();
+        return new ItemBuilder(HeadUtilities.getSkull("8550b7f74e9ed7633aa274ea30cc3d2e87abb36d4d1f4ca608cd44590cce0b")).setName("&aPrevious Page").build();
     }
 
     public ItemStack getRightArrow() {
-        return new ItemBuilder(HeadUtilities.getSkull("117f3666d3cedfae57778c78230d480c719fd5f65ffa2ad3255385e433b86e")).setName("&3Next Page").build();
+        return new ItemBuilder(HeadUtilities.getSkull("96339ff2e5342ba18bdc48a99cca65d123ce781d878272f9d964ead3b8ad370")).setName("&aNext Page").build();
     }
 
 }
