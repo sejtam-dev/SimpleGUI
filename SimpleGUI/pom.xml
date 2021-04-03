@@ -8,7 +8,18 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <packaging>jar</packaging>
     <artifactId>SimpleGUI</artifactId>
+
+    <name>SimpleGUI</name>
+    <description>Spigot library for GUI's</description>
+
+    <distributionManagement>
+        <repository>
+            <id>repsy</id>
+            <name>Public Repository</name>
+            <url>https://repo.repsy.io/mvn/sejtam10/github/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
