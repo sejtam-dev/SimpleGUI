@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SimpleGUI-Test">
+    <output-path>$PROJECT_DIR$/.server/plugins</output-path>
+    <root id="archive" name="SimpleGUI-Test.jar">
+      <element id="extracted-dir" path="$PROJECT_DIR$/SimpleGUI-Test/target/SimpleGUI-Test-1.0.0-jar-with-dependencies.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

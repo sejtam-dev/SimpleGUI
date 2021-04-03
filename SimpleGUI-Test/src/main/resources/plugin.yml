@@ -1,0 +1,11 @@
+name: SimpleGUI-Test
+description: SimpleGUI Test plugin.
+author: sejtam.developer@gmail.com
+authors: [Sejtam_]
+version: 1.0.0
+main: dev.sejtam.test.TestPlugin
+
+commands:
+  gui:
+  pgui:
+  igui:
