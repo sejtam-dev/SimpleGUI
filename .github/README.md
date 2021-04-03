@@ -8,7 +8,7 @@ Repository
 ```xml
 <repositories>
     <repository>
-         <id>MineSchem</id>
+         <id>Sejtam_</id>
          <url>https://repo.repsy.io/mvn/sejtam10/default</url>
     </repository>
 </repositories>
