@@ -5,7 +5,7 @@ Maven
 ---
 
 Repository
-```
+```xml
 <repositories>
     <repository>
          <id>MineSchem</id>
@@ -15,11 +15,12 @@ Repository
 ```
 
 Dependency
-```
+```xml
 <dependency>
     <groupId>dev.sejtam</groupId>
     <artifactId>SimpleGUI</artifactId>
     <version>1.0.0</version>
+    <scope>compile</scope>
 </dependency>
 ```
 
@@ -27,14 +28,14 @@ Gradle
 ---
 
 Repository
-```
+```groovy
 repositories {
     maven { url 'https://repo.repsy.io/mvn/sejtam10/default' }
 }
 ```
 
 Dependency
-```
+```groovy
 dependencies {
     compile 'dev.sejtam:SimpleGUI:1.0.0'
 }
