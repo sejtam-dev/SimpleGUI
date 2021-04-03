@@ -6,12 +6,10 @@ Maven
 
 Repository
 ```xml
-<repositories>
-    <repository>
-         <id>Sejtam_</id>
-         <url>https://repo.repsy.io/mvn/sejtam10/default</url>
-    </repository>
-</repositories>
+<repository>
+     <id>Sejtam_</id>
+     <url>https://repo.repsy.io/mvn/sejtam10/github</url>
+</repository>
 ```
 
 Dependency
@@ -19,7 +17,7 @@ Dependency
 <dependency>
     <groupId>dev.sejtam</groupId>
     <artifactId>SimpleGUI</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -30,13 +28,13 @@ Gradle
 Repository
 ```groovy
 repositories {
-    maven { url 'https://repo.repsy.io/mvn/sejtam10/default' }
+    maven { url 'https://repo.repsy.io/mvn/sejtam10/github' }
 }
 ```
 
 Dependency
 ```groovy
 dependencies {
-    compile 'dev.sejtam:SimpleGUI:1.0.0'
+    compile 'dev.sejtam:SimpleGUI:1.1.0'
 }
 ```
