@@ -17,6 +17,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class SimpleInventory {
     private final Inventory inventory;
     private SimpleInventory returnInventory;
 
-    public SimpleInventory(Player player, int size, String title) {
+    public SimpleInventory(@NotNull Player player, int size, @NotNull String title) {
         this.player = player;
         this.size = size;
         this.title = title;
@@ -61,7 +62,7 @@ public class SimpleInventory {
         updateInventory();
     }
 
-    public SimpleInventory(Player player, int size, String title, SimpleInventory returnInventory) {
+    public SimpleInventory(@NotNull Player player, int size, @NotNull String title, SimpleInventory returnInventory) {
         this(player, size, title);
 
         if (returnInventory == null)
@@ -111,7 +112,7 @@ public class SimpleInventory {
     }
 
     // Events
-    public void onInventoryClick(InventoryClickEvent event) {
+    public void onInventoryClick(@NotNull InventoryClickEvent event) {
         Inventory inventory = event.getInventory();
         int rawSlot = event.getRawSlot();
 
@@ -148,7 +149,7 @@ public class SimpleInventory {
         onClick(event);
     }
 
-    public void onInventoryClose(InventoryCloseEvent event) {
+    public void onInventoryClose(@NotNull InventoryCloseEvent event) {
         Inventory inventory = event.getInventory();
 
         //Check is same inventory
@@ -158,7 +159,7 @@ public class SimpleInventory {
         onClose(event);
     }
 
-    public void onInventoryDrag(InventoryDragEvent event) {
+    public void onInventoryDrag(@NotNull InventoryDragEvent event) {
         Inventory inventory = event.getInventory();
 
         //Check is same inventory
@@ -182,20 +183,22 @@ public class SimpleInventory {
     }
 
     // Methods for overriding
-    protected void onClick(InventoryClickEvent event) {
+    protected void onClick(@NotNull InventoryClickEvent event) {
     }
 
-    protected void onClose(InventoryCloseEvent event) {
+    protected void onClose(@NotNull InventoryCloseEvent event) {
     }
 
-    protected void onDrag(InventoryDragEvent event) {
+    protected void onDrag(@NotNull InventoryDragEvent event) {
     }
 
     // Item getter methods
+    @NotNull
     public ItemStack getDefaultGlass() {
         return new ItemBuilder(new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14)).setName(" ").build();
     }
 
+    @NotNull
     public ItemStack getDefaultReturnButton() {
         return new ItemBuilder(Material.COMPASS).setName("&4&lBack").build();
     }

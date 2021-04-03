@@ -4,18 +4,20 @@ import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.function.Consumer;
 
 public class ClickableItem extends ItemStack {
 
     private Consumer<InventoryClickEvent> consumer;
 
-    public ClickableItem(ItemStack item, Consumer<InventoryClickEvent> consumer) {
+    public ClickableItem(@NotNull ItemStack item, @NotNull Consumer<InventoryClickEvent> consumer) {
         super(item);
         this.consumer = consumer;
     }
 
-    public void onClick(InventoryClickEvent e) {
+    public void onClick(@NotNull InventoryClickEvent e) {
         consumer.accept(e);
     }
 
@@ -25,11 +27,11 @@ public class ClickableItem extends ItemStack {
         private Consumer<InventoryClickEvent> consumer = event -> {
         };
 
-        public Builder(ItemStack item) {
+        public Builder(@NotNull ItemStack item) {
             this.item = item;
         }
 
-        public Builder onClick(Consumer<InventoryClickEvent> consumer) {
+        public Builder onClick(@NotNull Consumer<InventoryClickEvent> consumer) {
             this.consumer = consumer;
             return this;
         }

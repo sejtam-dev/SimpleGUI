@@ -5,6 +5,9 @@ import lombok.Getter;
 
 import org.bukkit.entity.Player;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -102,7 +105,7 @@ public class NMSPlayer {
         }
     }
 
-    public void sendPacketOpenWindow(int containerId, String inventory, Object name) {
+    public void sendPacketOpenWindow(int containerId, @NotNull String inventory, @NotNull Object name) {
         try {
             sendPacket.invoke(playerConnection.get(toNMS(player)), PlayOutOpenWindowConstructor.newInstance(containerId, inventory, name));
         } catch (IllegalAccessException | InvocationTargetException | InstantiationException ex) {
@@ -127,7 +130,7 @@ public class NMSPlayer {
         }
     }
 
-    public void setActiveContainer(Object container) {
+    public void setActiveContainer(@NotNull Object container) {
         try {
             activeContainer.set(toNMS(player), container);
         } catch (IllegalAccessException ex) {
@@ -135,11 +138,13 @@ public class NMSPlayer {
         }
     }
 
+    @Nullable
     public Object toNMS() {
         return toNMS(player);
     }
 
-    public static Object toNMS(Player player) {
+    @Nullable
+    public static Object toNMS(@NotNull Player player) {
         try {
             return getHandle.invoke(player);
         } catch (IllegalAccessException | InvocationTargetException ex) {
@@ -147,6 +152,5 @@ public class NMSPlayer {
             return null;
         }
     }
-
 
 }

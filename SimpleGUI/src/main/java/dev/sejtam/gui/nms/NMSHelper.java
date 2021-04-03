@@ -2,6 +2,8 @@ package dev.sejtam.gui.nms;
 
 import dev.sejtam.gui.utils.MinecraftVersion;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -23,7 +25,7 @@ public class NMSHelper {
         }
     }
 
-    public static Class<?> getNMSClass(String name) {
+    public static Class<?> getNMSClass(@NotNull String name) {
         try {
             return Class.forName("net.minecraft.server." + MinecraftVersion.getVersion() + "." + name);
         } catch (ClassNotFoundException ex) {
@@ -32,7 +34,7 @@ public class NMSHelper {
         }
     }
 
-    public static Class<?> getCraftClass(String path) {
+    public static Class<?> getCraftClass(@NotNull String path) {
         try {
             return Class.forName("org.bukkit.craftbukkit." + MinecraftVersion.getVersion() + "." + path);
         } catch (ClassNotFoundException ex) {
@@ -41,7 +43,7 @@ public class NMSHelper {
         }
     }
 
-    public static Object getChatMessage(String message) {
+    public static Object getChatMessage(@NotNull String message) {
         try {
             return chatMessageConstructor.newInstance(message, new Object[]{});
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException ex) {

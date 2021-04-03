@@ -8,6 +8,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -23,7 +24,7 @@ public class HeadUtilities {
         return getSkullFromWeb(value);
     }
 
-    public static ItemStack getSkullByName(String name) {
+    public static ItemStack getSkullByName(@NotNull String name) {
         ItemStack item_skull = getPlayerSkullItem();
         SkullMeta sm = (SkullMeta) item_skull.getItemMeta();
 
@@ -34,11 +35,8 @@ public class HeadUtilities {
         return item_skull;
     }
 
-    public static ItemStack getSkullFromWeb(String url) {
+    public static ItemStack getSkullFromWeb(@NotNull String url) {
         ItemStack head = getPlayerSkullItem();
-        if (url == null)
-            return head;
-
         SkullMeta headMeta = (SkullMeta) head.getItemMeta();
 
         GameProfile profile = new GameProfile(UUID.randomUUID(), null);

@@ -16,6 +16,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.function.BiFunction;
 
 public class InputInventory {
@@ -31,7 +33,7 @@ public class InputInventory {
     private final ListenUp listener = new ListenUp();
     private boolean open;
 
-    public InputInventory(Player player, String itemName, BiFunction<Player, String, Runnable> clickHandler) {
+    public InputInventory(@NotNull Player player, String itemName, @NotNull BiFunction<Player, String, Runnable> clickHandler) {
         this.player = player;
         this.nmsPlayer = new NMSPlayer(this.player);
         this.clickHandler = clickHandler;
@@ -84,7 +86,7 @@ public class InputInventory {
     private class ListenUp implements Listener {
 
         @EventHandler
-        public void onInventoryClick(InventoryClickEvent event) {
+        public void onInventoryClick(@NotNull InventoryClickEvent event) {
             Inventory inventory = event.getInventory();
 
             if(!inventory.equals(inventory))
@@ -125,7 +127,7 @@ public class InputInventory {
         }
 
         @EventHandler
-        public void onInventoryClose(InventoryCloseEvent event) {
+        public void onInventoryClose(@NotNull InventoryCloseEvent event) {
             if(!event.getPlayer().getName().equals(player.getName()))
                 return;
 

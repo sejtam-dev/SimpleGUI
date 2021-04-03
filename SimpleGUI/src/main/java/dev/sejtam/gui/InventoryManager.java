@@ -1,8 +1,8 @@
 package dev.sejtam.gui;
 
 import lombok.Getter;
-
 import lombok.Setter;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,6 +11,9 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,15 +28,16 @@ public class InventoryManager implements Listener {
     private static JavaPlugin instance;
 
     // Methods
-    public static SimpleInventory get(UUID uuid) {
+    @Nullable
+    public static SimpleInventory get(@NotNull UUID uuid) {
         return inventories.get(uuid);
     }
 
-    public static void put(UUID uuid, SimpleInventory inventoryContent) {
+    public static void put(@NotNull UUID uuid, @NotNull SimpleInventory inventoryContent) {
         inventories.put(uuid, inventoryContent);
     }
 
-    public static void updateInventory(UUID uuid) {
+    public static void updateInventory(@NotNull UUID uuid) {
         SimpleInventory inventoryContent = inventories.get(uuid);
         if (inventoryContent == null)
             return;
@@ -41,13 +45,13 @@ public class InventoryManager implements Listener {
         inventoryContent.updateInventory();
     }
 
-    public static void openInventory(UUID uuid) {
+    public static void openInventory(@NotNull UUID uuid) {
         inventories.get(uuid).openInventory();
     }
 
     // Events
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
+    public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
         Player player = event.getPlayer();
         UUID uuid = player.getUniqueId();
 
@@ -56,7 +60,7 @@ public class InventoryManager implements Listener {
     }
 
     @EventHandler
-    public void onInventoryClick(InventoryClickEvent event) {
+    public void onInventoryClick(@NotNull InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         UUID uuid = player.getUniqueId();
 
@@ -66,7 +70,7 @@ public class InventoryManager implements Listener {
     }
 
     @EventHandler
-    public void onInventoryDrag(InventoryDragEvent event) {
+    public void onInventoryDrag(@NotNull InventoryDragEvent event) {
         Player player = (Player) event.getWhoClicked();
         UUID uuid = player.getUniqueId();
 
@@ -76,7 +80,7 @@ public class InventoryManager implements Listener {
     }
 
     @EventHandler
-    public void onInventoryClose(InventoryCloseEvent event) {
+    public void onInventoryClose(@NotNull InventoryCloseEvent event) {
         Player player = (Player) event.getPlayer();
         UUID uuid = player.getUniqueId();
 

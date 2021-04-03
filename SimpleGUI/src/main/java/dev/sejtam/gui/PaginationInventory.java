@@ -10,6 +10,8 @@ import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 @Getter
@@ -20,11 +22,11 @@ public class PaginationInventory extends SimpleInventory {
 
     private int page = 0;
 
-    public PaginationInventory(Player player, int size, String title) {
+    public PaginationInventory(@NotNull Player player, int size, @NotNull String title) {
         this(player, size, title, null);
     }
 
-    public PaginationInventory(Player player, int size, String title, SimpleInventory returnInventory) {
+    public PaginationInventory(@NotNull Player player, int size, @NotNull String title, SimpleInventory returnInventory) {
         super(player, size, title, returnInventory);
 
         // Create pagination
@@ -71,10 +73,12 @@ public class PaginationInventory extends SimpleInventory {
     }
 
     // Items getter methods
+    @NotNull
     public ItemStack getLeftArrow() {
         return new ItemBuilder(HeadUtilities.getSkull("8550b7f74e9ed7633aa274ea30cc3d2e87abb36d4d1f4ca608cd44590cce0b")).setName("&aPrevious Page").build();
     }
 
+    @NotNull
     public ItemStack getRightArrow() {
         return new ItemBuilder(HeadUtilities.getSkull("96339ff2e5342ba18bdc48a99cca65d123ce781d878272f9d964ead3b8ad370")).setName("&aNext Page").build();
     }

@@ -9,9 +9,11 @@ import dev.sejtam.gui.utils.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
+import org.jetbrains.annotations.NotNull;
+
 public class FirstGUI extends SimpleInventory {
 
-    public FirstGUI(Player player) {
+    public FirstGUI(@NotNull Player player) {
         super(player, 54, "&cFirstGUI");
 
         setItem(new ClickableItem(new ItemBuilder(Material.BOOK).setName("Sample Item").build(), event -> {

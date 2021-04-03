@@ -4,6 +4,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -41,7 +43,7 @@ public class NMSAnvil {
         }
     }
 
-    public void setActiveContainerId(Object container, int containerId) {
+    public void setActiveContainerId(@NotNull Object container, int containerId) {
         try {
             windowId.set(container, containerId);
         } catch (IllegalAccessException ex) {
@@ -49,7 +51,7 @@ public class NMSAnvil {
         }
     }
 
-    public void addActiveContainerSlotListener(Object container, Player player) {
+    public void addActiveContainerSlotListener(@NotNull Object container, @NotNull Player player) {
         try {
             addSlotListener.invoke(container, NMSPlayer.toNMS(player));
         } catch (IllegalAccessException | InvocationTargetException ex) {
@@ -57,7 +59,7 @@ public class NMSAnvil {
         }
     }
 
-    public Inventory toBukkitInventory(Object container) {
+    public Inventory toBukkitInventory(@NotNull Object container) {
         try {
             return ((InventoryView)getBukkitView.invoke(container)).getTopInventory();
         } catch (IllegalAccessException | InvocationTargetException ex) {
@@ -66,7 +68,7 @@ public class NMSAnvil {
         }
     }
 
-    public Object newContainerAnvil(Player player) {
+    public Object newContainerAnvil(@NotNull Player player) {
         try {
             final Object nmsPlayer = NMSPlayer.toNMS(player);
             Object obj = anvilConstructor.newInstance(NMSPlayer.inventory.get(nmsPlayer), NMSPlayer.world.get(nmsPlayer), NMSHelper.getBlockPositionZero(), nmsPlayer);

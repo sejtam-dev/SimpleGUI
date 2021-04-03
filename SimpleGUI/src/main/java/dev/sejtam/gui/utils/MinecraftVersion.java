@@ -2,6 +2,10 @@ package dev.sejtam.gui.utils;
 
 import org.bukkit.Bukkit;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 public enum MinecraftVersion {
     v1_8( "1_8", 0 ),
     v1_9( "1_9", 1 ),
@@ -32,15 +36,18 @@ public enum MinecraftVersion {
         this.order = v;
     }
 
-    public boolean greaterThanOrEqualTo( MinecraftVersion other ) {
+    @Contract(pure = true)
+    public boolean greaterThanOrEqualTo(@NotNull MinecraftVersion other ) {
         return this.order >= other.order;
     }
 
-    public boolean lessThanOrEqualTo( MinecraftVersion other ) {
+    @Contract(pure = true)
+    public boolean lessThanOrEqualTo(@NotNull MinecraftVersion other ) {
         return this.order <= other.order;
     }
 
-    public static MinecraftVersion get( String v ) {
+    @Nullable
+    public static MinecraftVersion get(String v ) {
         for ( MinecraftVersion k : MinecraftVersion.values() ) {
             if ( v.contains( k.key ) ) {
                 return k;
@@ -49,9 +56,11 @@ public enum MinecraftVersion {
         return null;
     }
 
+    @Contract(pure = true)
     public static MinecraftVersion get() {
         return minecraftVersion;
     }
+    @Contract(pure = true)
     public static String getVersion() {
         return version;
     }

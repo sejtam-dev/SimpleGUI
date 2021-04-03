@@ -8,9 +8,11 @@ import dev.sejtam.gui.utils.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
+import org.jetbrains.annotations.NotNull;
+
 public class PaginationGUI extends PaginationInventory {
 
-    public PaginationGUI(Player player) {
+    public PaginationGUI(@NotNull Player player) {
         super(player, 36, "Pagination Test");
 
         //for (int i = 0; i < 100; i++)
