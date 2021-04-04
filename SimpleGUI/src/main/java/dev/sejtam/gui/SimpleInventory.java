@@ -29,7 +29,7 @@ import java.util.UUID;
 public class SimpleInventory {
 
     protected Player player;
-    public int size;
+    public Rows rows;
     public String title;
 
     // Settings
@@ -43,27 +43,27 @@ public class SimpleInventory {
     private final Inventory inventory;
     private SimpleInventory returnInventory;
 
-    public SimpleInventory(@NotNull Player player, int size, @NotNull String title) {
+    public SimpleInventory(@NotNull Player player, Rows rows, @NotNull String title) {
         this.player = player;
-        this.size = size;
+        this.rows = rows;
         this.title = title;
-        this.inventory = Bukkit.createInventory(this.player, this.size, ChatColor.translateAlternateColorCodes('&', this.title));
-        this.content = new ArrayList<>(this.size);
+        this.inventory = Bukkit.createInventory(this.player, rows.getSlots(), ChatColor.translateAlternateColorCodes('&', this.title));
+        this.content = new ArrayList<>(this.rows.getSlots());
 
-        for (int i = 0; i < this.size; i++) {
+        for (int i = 0; i < this.rows.getSlots(); i++) {
             this.content.add(ItemBuilder.empty());
         }
 
         setItem(getDefaultGlass(), 0, 1, 2, 3, 4, 5, 6, 7, 8);
-        for (int i = size - 9; i < size; i++) {
+        for (int i = rows.getSlots() - 9; i < rows.getSlots(); i++) {
             setItem(getDefaultGlass(), i);
         }
 
         updateInventory();
     }
 
-    public SimpleInventory(@NotNull Player player, int size, @NotNull String title, SimpleInventory returnInventory) {
-        this(player, size, title);
+    public SimpleInventory(@NotNull Player player, Rows rows, @NotNull String title, SimpleInventory returnInventory) {
+        this(player, rows, title);
 
         if (returnInventory == null)
             return;
@@ -75,7 +75,7 @@ public class SimpleInventory {
             InventoryManager.put(uuid, this.returnInventory);
             InventoryManager.updateInventory(uuid);
             InventoryManager.openInventory(uuid);
-        }), this.size - 5);
+        }), this.rows.getSlots() - 5);
 
         updateInventory();
     }
@@ -87,7 +87,7 @@ public class SimpleInventory {
     }
 
     public void clearInventory() {
-        for (int i = 0; i < this.size; i++) {
+        for (int i = 0; i < this.rows.getSlots(); i++) {
             this.content.add(ItemBuilder.empty());
         }
         inventory.clear();
@@ -96,7 +96,7 @@ public class SimpleInventory {
     }
 
     public void clearSlots() {
-        for (int i = 9; i < size - 9; i++) {
+        for (int i = 9; i < rows.getSlots() - 9; i++) {
             content.set(i, ItemBuilder.empty());
         }
         updateInventory();
