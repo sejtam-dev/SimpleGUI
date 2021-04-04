@@ -49,6 +49,12 @@
             <id>mojang-lib</id>
             <url>https://libraries.minecraft.net/</url>
         </repository>
+
+        <!-- Default Repository -->
+        <repository>
+            <id>repsy</id>
+            <url>https://repo.repsy.io/mvn/sejtam10/github/</url>
+        </repository>
     </repositories>
 
     <dependencies>
