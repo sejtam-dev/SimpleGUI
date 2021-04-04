@@ -14,6 +14,14 @@
         <module>SimpleGUI</module>
     </modules>
 
+    <distributionManagement>
+        <repository>
+            <id>repsy</id>
+            <name>Public Repository</name>
+            <url>https://repo.repsy.io/mvn/sejtam10/github/</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <java-version>8</java-version>
         <spigot-version>1.8.8-R0.1-SNAPSHOT</spigot-version>

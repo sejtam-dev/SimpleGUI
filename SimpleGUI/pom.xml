@@ -14,12 +14,4 @@
     <name>SimpleGUI</name>
     <description>Spigot library for GUI's</description>
 
-    <distributionManagement>
-        <repository>
-            <id>repsy</id>
-            <name>Public Repository</name>
-            <url>https://repo.repsy.io/mvn/sejtam10/github/</url>
-        </repository>
-    </distributionManagement>
-
 </project>
