@@ -56,7 +56,7 @@ public class InventoryManager implements Listener {
         UUID uuid = player.getUniqueId();
 
         if (!inventories.containsKey(uuid))
-            inventories.put(uuid, new SimpleInventory(player, 54, ""));
+            inventories.put(uuid, new SimpleInventory(player, Rows.SIX, ""));
     }
 
     @EventHandler

@@ -43,7 +43,7 @@ public class SimpleInventory {
     private final Inventory inventory;
     private SimpleInventory returnInventory;
 
-    public SimpleInventory(@NotNull Player player, Rows rows, @NotNull String title) {
+    public SimpleInventory(@NotNull Player player, @NotNull Rows rows, @NotNull String title) {
         this.player = player;
         this.rows = rows;
         this.title = title;
@@ -62,7 +62,7 @@ public class SimpleInventory {
         updateInventory();
     }
 
-    public SimpleInventory(@NotNull Player player, Rows rows, @NotNull String title, SimpleInventory returnInventory) {
+    public SimpleInventory(@NotNull Player player, @NotNull Rows rows, @NotNull String title, SimpleInventory returnInventory) {
         this(player, rows, title);
 
         if (returnInventory == null)

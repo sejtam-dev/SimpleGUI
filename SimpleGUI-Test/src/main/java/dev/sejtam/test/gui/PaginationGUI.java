@@ -2,6 +2,7 @@ package dev.sejtam.test.gui;
 
 import dev.sejtam.gui.ClickableItem;
 import dev.sejtam.gui.PaginationInventory;
+import dev.sejtam.gui.Rows;
 import dev.sejtam.gui.utils.HeadUtilities;
 import dev.sejtam.gui.utils.ItemBuilder;
 
@@ -13,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 public class PaginationGUI extends PaginationInventory {
 
     public PaginationGUI(@NotNull Player player) {
-        super(player, 36, "Pagination Test");
+        super(player, Rows.FOUR, "Pagination Test");
 
         //for (int i = 0; i < 100; i++)
         //    getPagination().add(i, new ItemBuilder(Material.STONE).setName("Item - " + i).build());

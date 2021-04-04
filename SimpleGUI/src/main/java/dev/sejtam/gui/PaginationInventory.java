@@ -22,11 +22,11 @@ public class PaginationInventory extends SimpleInventory {
 
     private int page = 0;
 
-    public PaginationInventory(@NotNull Player player, Rows rows, @NotNull String title) {
+    public PaginationInventory(@NotNull Player player, @NotNull Rows rows, @NotNull String title) {
         this(player, rows, title, null);
     }
 
-    public PaginationInventory(@NotNull Player player, Rows rows, @NotNull String title, SimpleInventory returnInventory) {
+    public PaginationInventory(@NotNull Player player, @NotNull Rows rows, @NotNull String title, SimpleInventory returnInventory) {
         super(player, rows, title, returnInventory);
 
         // Create pagination

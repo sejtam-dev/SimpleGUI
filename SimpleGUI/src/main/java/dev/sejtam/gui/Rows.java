@@ -1,5 +1,10 @@
 package dev.sejtam.gui;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum Rows {
     ONE(9),
     TWO(18),
@@ -9,17 +14,4 @@ public enum Rows {
     SIX(54);
 
     private int slots;
-
-    Rows(int slots) {
-        this.slots = slots;
-    }
-
-    public int getSlots() {
-        return slots;
-    }
-
-    public void setSlots(int slots) {
-        this.slots = slots;
-    }
-
 }

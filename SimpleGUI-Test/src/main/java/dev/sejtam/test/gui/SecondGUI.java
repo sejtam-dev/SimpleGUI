@@ -1,5 +1,6 @@
 package dev.sejtam.test.gui;
 
+import dev.sejtam.gui.Rows;
 import dev.sejtam.gui.SimpleInventory;
 import dev.sejtam.gui.utils.ItemBuilder;
 
@@ -11,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class SecondGUI extends SimpleInventory {
 
     public SecondGUI(@NotNull Player player, @NotNull SimpleInventory returnInventory) {
-        super(player, 36, "&cSecondGUI", returnInventory);
+        super(player, Rows.FOUR, "&cSecondGUI", returnInventory);
 
         setItem(new ItemBuilder(Material.PAPER).setName("Sample Item").build(), 21);
 
