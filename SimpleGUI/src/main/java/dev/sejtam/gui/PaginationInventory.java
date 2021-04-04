@@ -7,6 +7,7 @@ import dev.sejtam.gui.utils.Pagination;
 import lombok.AccessLevel;
 import lombok.Getter;
 
+import lombok.Setter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -18,7 +19,8 @@ import java.util.List;
 public class PaginationInventory extends SimpleInventory {
 
     @Getter(AccessLevel.PUBLIC)
-    private final Pagination<ItemStack> pagination;
+    @Setter(AccessLevel.PROTECTED)
+    private Pagination<ItemStack> pagination;
 
     private int page = 0;
 
