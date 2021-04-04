@@ -102,7 +102,7 @@ public class SimpleInventory {
         updateInventory();
     }
 
-    public void addItem(@NotNull ItemStack... item) {
+    public void addItems(@NotNull ItemStack... item) {
         if(item.length == 0)
             return;
 
