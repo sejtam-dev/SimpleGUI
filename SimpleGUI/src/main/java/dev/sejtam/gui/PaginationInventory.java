@@ -22,15 +22,15 @@ public class PaginationInventory extends SimpleInventory {
 
     private int page = 0;
 
-    public PaginationInventory(@NotNull Player player, int size, @NotNull String title) {
-        this(player, size, title, null);
+    public PaginationInventory(@NotNull Player player, Rows rows, @NotNull String title) {
+        this(player, rows, title, null);
     }
 
-    public PaginationInventory(@NotNull Player player, int size, @NotNull String title, SimpleInventory returnInventory) {
-        super(player, size, title, returnInventory);
+    public PaginationInventory(@NotNull Player player, Rows rows, @NotNull String title, SimpleInventory returnInventory) {
+        super(player, rows, title, returnInventory);
 
         // Create pagination
-        this.pagination = new Pagination<>(size - 18);
+        this.pagination = new Pagination<>(rows.getSlots() - 18);
 
         // Add left arrow button
         this.setItem(new ClickableItem(getLeftArrow(),
@@ -40,7 +40,7 @@ public class PaginationInventory extends SimpleInventory {
 
                     this.page--;
                     updateInventory();
-                }), this.size - 2);
+                }), this.rows.getSlots() - 2);
         // Add right arrow button
         this.setItem(new ClickableItem(getRightArrow(),
                 event -> {
@@ -49,14 +49,14 @@ public class PaginationInventory extends SimpleInventory {
 
                     this.page++;
                     updateInventory();
-                }), this.size - 1);
+                }), this.rows.getSlots() - 1);
 
         updateInventory();
     }
 
     @Override
     public void updateInventory() {
-        for (int i = 9; i < size - 9; i++) {
+        for (int i = 9; i < rows.getSlots() - 9; i++) {
             content.set(i, ItemBuilder.empty());
         }
 
