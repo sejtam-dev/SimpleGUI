@@ -102,6 +102,23 @@ public class SimpleInventory {
         updateInventory();
     }
 
+    public void addItem(@NotNull ItemStack... item) {
+        if(item.length == 0)
+            return;
+
+        int j = 0;
+        for (int i = 0; i < rows.getSlots(); i++) {
+            if(getContent().get(i).getType() != Material.AIR)
+                continue;
+
+            setItem(item[j], i);
+            j++;
+
+            if(item.length == j)
+                return;
+        }
+    }
+
     public void setItem(@NotNull ItemStack item, int... slots) {
         for (int i : slots)
             content.set(i, item);
