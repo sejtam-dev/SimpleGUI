@@ -22,6 +22,13 @@
         </repository>
     </distributionManagement>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repsy</id>
+            <url>https://repo.repsy.io/mvn/sejtam10/github/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <properties>
         <java-version>8</java-version>
         <spigot-version>1.8.8-R0.1-SNAPSHOT</spigot-version>
