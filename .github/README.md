@@ -17,7 +17,7 @@ Dependency
 <dependency>
     <groupId>dev.sejtam</groupId>
     <artifactId>SimpleGUI</artifactId>
-    <version>1.3.0</version>
+    <version>1.3.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -35,6 +35,6 @@ repositories {
 Dependency
 ```groovy
 dependencies {
-    compile 'dev.sejtam:SimpleGUI:1.3.0'
+    compile 'dev.sejtam:SimpleGUI:1.3.1'
 }
 ```
