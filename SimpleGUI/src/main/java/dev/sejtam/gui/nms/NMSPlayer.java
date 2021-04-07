@@ -90,7 +90,7 @@ public class NMSPlayer {
 
     public int getNextContainerId() {
         try {
-            return (int) playerNextContainerCounter.invoke(toNMS(player));
+            return (int) playerNextContainerCounter.invoke(toNMS(this.player));
         } catch (IllegalAccessException | InvocationTargetException ex) {
             ex.printStackTrace();
             return -1;
@@ -99,7 +99,7 @@ public class NMSPlayer {
 
     public void handleInventoryCloseEvent() {
         try {
-            handleInventoryCloseEvent.invoke(nmsCraftEventFactoryClass, toNMS(player));
+            handleInventoryCloseEvent.invoke(nmsCraftEventFactoryClass, toNMS(this.player));
         } catch (IllegalAccessException | InvocationTargetException ex) {
             ex.printStackTrace();
         }
@@ -107,7 +107,7 @@ public class NMSPlayer {
 
     public void sendPacketOpenWindow(int containerId, @NotNull String inventory, @NotNull Object name) {
         try {
-            sendPacket.invoke(playerConnection.get(toNMS(player)), PlayOutOpenWindowConstructor.newInstance(containerId, inventory, name));
+            sendPacket.invoke(playerConnection.get(toNMS(this.player)), PlayOutOpenWindowConstructor.newInstance(containerId, inventory, name));
         } catch (IllegalAccessException | InvocationTargetException | InstantiationException ex) {
             ex.printStackTrace();
         }
@@ -115,7 +115,7 @@ public class NMSPlayer {
 
     public void sendPacketCloseWindow(int containerId) {
         try {
-            sendPacket.invoke( playerConnection.get(toNMS(player)), PlayOutCloseWindowConstructor.newInstance(containerId));
+            sendPacket.invoke( playerConnection.get(toNMS(this.player)), PlayOutCloseWindowConstructor.newInstance(containerId));
         } catch (IllegalAccessException | InvocationTargetException | InstantiationException ex) {
             ex.printStackTrace();
         }
@@ -123,7 +123,7 @@ public class NMSPlayer {
 
     public void setActiveContainerDefault() {
         try {
-            Object nmsPlayer = toNMS(player);
+            Object nmsPlayer = toNMS(this.player);
             activeContainer.set(nmsPlayer, defaultContainer.get(nmsPlayer));
         } catch (IllegalAccessException ex) {
             ex.printStackTrace();
@@ -132,7 +132,7 @@ public class NMSPlayer {
 
     public void setActiveContainer(@NotNull Object container) {
         try {
-            activeContainer.set(toNMS(player), container);
+            activeContainer.set(toNMS(this.player), container);
         } catch (IllegalAccessException ex) {
             ex.printStackTrace();
         }
@@ -140,7 +140,7 @@ public class NMSPlayer {
 
     @Nullable
     public Object toNMS() {
-        return toNMS(player);
+        return toNMS(this.player);
     }
 
     @Nullable

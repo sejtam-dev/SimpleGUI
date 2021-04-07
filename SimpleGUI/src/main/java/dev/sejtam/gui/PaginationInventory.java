@@ -58,8 +58,8 @@ public class PaginationInventory extends SimpleInventory {
 
     @Override
     public void updateInventory() {
-        for (int i = 9; i < rows.getSlots() - 9; i++) {
-            content.set(i, ItemBuilder.empty());
+        for (int i = 9; i < this.rows.getSlots() - 9; i++) {
+            this.content.set(i, ItemBuilder.empty());
         }
 
         if (this.pagination == null)
@@ -68,7 +68,7 @@ public class PaginationInventory extends SimpleInventory {
         // Fill inventory
         List<ItemStack> itemStackList = this.pagination.getPage(this.page);
         for (int i = 0; i < itemStackList.size(); i++) {
-            this.getContent().set(9 + i, itemStackList.get(i));
+            getContent().set(9 + i, itemStackList.get(i));
         }
 
         super.updateInventory();

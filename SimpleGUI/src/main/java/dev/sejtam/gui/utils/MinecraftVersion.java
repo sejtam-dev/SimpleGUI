@@ -1,5 +1,7 @@
 package dev.sejtam.gui.utils;
 
+import lombok.AccessLevel;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 
 import org.jetbrains.annotations.Contract;
@@ -23,6 +25,7 @@ public enum MinecraftVersion {
     private int order;
     private String key;
 
+    @Getter(AccessLevel.PUBLIC)
     private static String version;
     private static MinecraftVersion minecraftVersion;
 
@@ -59,9 +62,5 @@ public enum MinecraftVersion {
     @Contract(pure = true)
     public static MinecraftVersion get() {
         return minecraftVersion;
-    }
-    @Contract(pure = true)
-    public static String getVersion() {
-        return version;
     }
 }

@@ -18,7 +18,7 @@ public class ClickableItem extends ItemStack {
     }
 
     public void onClick(@NotNull InventoryClickEvent e) {
-        consumer.accept(e);
+        this.consumer.accept(e);
     }
 
     public static class Builder {
@@ -37,7 +37,7 @@ public class ClickableItem extends ItemStack {
         }
 
         public ClickableItem build() {
-            return new ClickableItem(item, consumer);
+            return new ClickableItem(this.item, this.consumer);
         }
 
         public ClickableItem empty() {

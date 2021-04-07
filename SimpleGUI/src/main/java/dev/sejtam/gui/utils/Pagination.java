@@ -33,7 +33,7 @@ public class Pagination<T> extends ArrayList<T> {
     }
 
     public int totalPages() {
-        return (int) Math.ceil((double) (size() + (onClickAdd == null ? 0 : 1)) / this.pageSize);
+        return (int) Math.ceil((double) (size() + (this.onClickAdd == null ? 0 : 1)) / this.pageSize);
     }
 
     public boolean exists(int page) {
@@ -62,9 +62,9 @@ public class Pagination<T> extends ArrayList<T> {
             objects.add(get(i));
         }
 
-        if (onClickAdd != null) {
+        if (this.onClickAdd != null) {
             if (objects.size() < pageSize) {
-                objects.add(onClickAdd);
+                objects.add(this.onClickAdd);
             }
         }
 

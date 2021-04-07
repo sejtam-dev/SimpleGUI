@@ -55,7 +55,7 @@ public class SimpleInventory {
         }
 
         setItem(getDefaultGlass(), 0, 1, 2, 3, 4, 5, 6, 7, 8);
-        for (int i = rows.getSlots() - 9; i < rows.getSlots(); i++) {
+        for (int i = this.rows.getSlots() - 9; i < this.rows.getSlots(); i++) {
             setItem(getDefaultGlass(), i);
         }
 
@@ -82,22 +82,22 @@ public class SimpleInventory {
 
     // Inventory methods
     public void updateInventory() {
-        getInventory().setContents(content.toArray(new ItemStack[0]));
-        player.updateInventory();
+        getInventory().setContents(this.content.toArray(new ItemStack[0]));
+        this.player.updateInventory();
     }
 
     public void clearInventory() {
         for (int i = 0; i < this.rows.getSlots(); i++) {
             this.content.add(ItemBuilder.empty());
         }
-        inventory.clear();
+        this.inventory.clear();
 
         updateInventory();
     }
 
     public void clearSlots() {
-        for (int i = 9; i < rows.getSlots() - 9; i++) {
-            content.set(i, ItemBuilder.empty());
+        for (int i = 9; i < this.rows.getSlots() - 9; i++) {
+            this.content.set(i, ItemBuilder.empty());
         }
         updateInventory();
     }
@@ -107,8 +107,8 @@ public class SimpleInventory {
             return;
 
         int j = 0;
-        for (int i = 0; i < rows.getSlots(); i++) {
-            if(getContent().get(i).getType() != Material.AIR)
+        for (int i = 0; i < this.rows.getSlots(); i++) {
+            if(this.content.get(i).getType() != Material.AIR)
                 continue;
 
             setItem(item[j], i);
@@ -121,7 +121,7 @@ public class SimpleInventory {
 
     public void setItem(@NotNull ItemStack item, int... slots) {
         for (int i : slots)
-            content.set(i, item);
+            this.content.set(i, item);
     }
 
     public void openInventory() {
@@ -137,7 +137,7 @@ public class SimpleInventory {
         if (!getInventory().equals(inventory))
             return;
 
-        if (!canEnterItems) {
+        if (!this.canEnterItems) {
             InventoryAction inventoryAction = event.getAction();
             switch (inventoryAction) {
                 case HOTBAR_MOVE_AND_READD:
@@ -157,7 +157,7 @@ public class SimpleInventory {
             return;
 
         if (0 <= rawSlot && rawSlot < inventory.getSize()) {
-            ItemStack contentItem = content.get(rawSlot);
+            ItemStack contentItem = this.content.get(rawSlot);
 
             if (contentItem instanceof ClickableItem)
                 ((ClickableItem) contentItem).onClick(event);
@@ -183,7 +183,7 @@ public class SimpleInventory {
         if (!getInventory().equals(inventory))
             return;
 
-        if (!canDrag) {
+        if (!this.canDrag) {
             event.setCancelled(true);
             return;
         }
