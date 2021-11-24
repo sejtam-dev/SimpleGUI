@@ -27,19 +27,23 @@ public class ClickableItem extends ItemStack {
         private Consumer<InventoryClickEvent> consumer = event -> {
         };
 
+        @NotNull
         public Builder(@NotNull ItemStack item) {
             this.item = item;
         }
 
+        @NotNull
         public Builder onClick(@NotNull Consumer<InventoryClickEvent> consumer) {
             this.consumer = consumer;
             return this;
         }
 
+        @NotNull
         public ClickableItem build() {
             return new ClickableItem(this.item, this.consumer);
         }
 
+        @NotNull
         public ClickableItem empty() {
             return new ClickableItem(new ItemStack(Material.AIR), event -> {
             });

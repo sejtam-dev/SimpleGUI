@@ -6,12 +6,13 @@ import dev.sejtam.gui.utils.Pagination;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-
 import lombok.Setter;
+
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class PaginationInventory extends SimpleInventory {
         this(player, rows, title, null);
     }
 
-    public PaginationInventory(@NotNull Player player, @NotNull Rows rows, @NotNull String title, SimpleInventory returnInventory) {
+    public PaginationInventory(@NotNull Player player, @NotNull Rows rows, @NotNull String title, @Nullable SimpleInventory returnInventory) {
         super(player, rows, title, returnInventory);
 
         // Create pagination
@@ -43,6 +44,7 @@ public class PaginationInventory extends SimpleInventory {
                     this.page--;
                     updateInventory();
                 }), this.rows.getSlots() - 2);
+
         // Add right arrow button
         this.setItem(new ClickableItem(getRightArrow(),
                 event -> {
@@ -74,15 +76,25 @@ public class PaginationInventory extends SimpleInventory {
         super.updateInventory();
     }
 
-    // Items getter methods
+    // Default Items & Offsets
     @NotNull
-    public ItemStack getLeftArrow() {
+    protected ItemStack getLeftArrow() {
         return new ItemBuilder(HeadUtilities.getSkull("8550b7f74e9ed7633aa274ea30cc3d2e87abb36d4d1f4ca608cd44590cce0b")).setName("&aPrevious Page").build();
     }
 
     @NotNull
-    public ItemStack getRightArrow() {
+    protected ItemStack getRightArrow() {
         return new ItemBuilder(HeadUtilities.getSkull("96339ff2e5342ba18bdc48a99cca65d123ce781d878272f9d964ead3b8ad370")).setName("&aNext Page").build();
+    }
+
+    @NotNull
+    protected int getLeftArrowPosition() {
+        return this.rows.getSlots() - 2;
+    }
+
+    @NotNull
+    protected int getRightArrowPosition() {
+        return this.rows.getSlots() - 1;
     }
 
 }

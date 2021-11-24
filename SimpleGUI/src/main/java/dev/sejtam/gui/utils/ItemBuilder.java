@@ -28,11 +28,13 @@ public class ItemBuilder {
         this.itemMeta = this.itemStack.getItemMeta();
     }
 
+    @NotNull
     public ItemBuilder setName(@NotNull String name) {
         this.itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
         return this;
     }
 
+    @NotNull
     public ItemBuilder setLore(@NotNull String... lore) {
         List<String> newLore = new ArrayList<>();
         for (String l : lore) {
@@ -43,26 +45,31 @@ public class ItemBuilder {
         return this;
     }
 
+    @NotNull
     public ItemBuilder setAmount(int amount) {
         itemStack.setAmount(amount);
         return this;
     }
 
+    @NotNull
     public ItemBuilder setDurability(short data) {
         itemStack.setDurability(data);
         return this;
     }
 
+    @NotNull
     public ItemBuilder addEnchantment(@NotNull Enchantment enchantment, int lvl, boolean bool) {
         this.itemMeta.addEnchant(enchantment, lvl, bool);
         return this;
     }
 
+    @NotNull
     public ItemBuilder hideEnchantments() {
         this.itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         return this;
     }
 
+    @NotNull
     public ItemStack build() {
         this.itemStack.setItemMeta(this.itemMeta);
         return this.itemStack;

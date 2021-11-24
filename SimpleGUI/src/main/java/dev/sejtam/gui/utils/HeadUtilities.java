@@ -17,6 +17,7 @@ import java.util.UUID;
 
 public class HeadUtilities {
 
+    @NotNull
     public static ItemStack getSkull(@NotNull String value) {
         if (!value.startsWith("http"))
             return getSkullFromWeb("http://textures.minecraft.net/texture/" + value);
@@ -24,6 +25,7 @@ public class HeadUtilities {
         return getSkullFromWeb(value);
     }
 
+    @NotNull
     public static ItemStack getSkullByName(@NotNull String name) {
         ItemStack item_skull = getPlayerSkullItem();
         SkullMeta sm = (SkullMeta) item_skull.getItemMeta();
@@ -35,6 +37,7 @@ public class HeadUtilities {
         return item_skull;
     }
 
+    @NotNull
     public static ItemStack getSkullFromWeb(@NotNull String url) {
         ItemStack head = getPlayerSkullItem();
         SkullMeta headMeta = (SkullMeta) head.getItemMeta();

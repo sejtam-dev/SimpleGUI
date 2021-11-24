@@ -3,6 +3,7 @@ package dev.sejtam.gui.nms;
 import dev.sejtam.gui.utils.MinecraftVersion;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -25,6 +26,7 @@ public class NMSHelper {
         }
     }
 
+    @Nullable
     public static Class<?> getNMSClass(@NotNull String name) {
         try {
             return Class.forName("net.minecraft.server." + MinecraftVersion.getVersion() + "." + name);
@@ -34,6 +36,7 @@ public class NMSHelper {
         }
     }
 
+    @Nullable
     public static Class<?> getCraftClass(@NotNull String path) {
         try {
             return Class.forName("org.bukkit.craftbukkit." + MinecraftVersion.getVersion() + "." + path);
@@ -43,6 +46,7 @@ public class NMSHelper {
         }
     }
 
+    @Nullable
     public static Object getChatMessage(@NotNull String message) {
         try {
             return chatMessageConstructor.newInstance(message, new Object[]{});
@@ -52,6 +56,7 @@ public class NMSHelper {
         }
     }
 
+    @Nullable
     public static Object getBlockPositionZero() {
         try {
             return nmsBlockPositionClass.getField("ZERO").get(null);

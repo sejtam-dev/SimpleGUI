@@ -2,6 +2,7 @@ package dev.sejtam.gui.utils;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+
 import org.bukkit.Bukkit;
 
 import org.jetbrains.annotations.Contract;

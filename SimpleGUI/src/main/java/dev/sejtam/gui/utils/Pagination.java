@@ -3,6 +3,8 @@ package dev.sejtam.gui.utils;
 import lombok.AccessLevel;
 import lombok.Setter;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,6 +42,7 @@ public class Pagination<T> extends ArrayList<T> {
         return !(page < 0) && page < totalPages();
     }
 
+    @NotNull
     public List<T> getPage(int page) {
         List<T> objects = new ArrayList<>();
 

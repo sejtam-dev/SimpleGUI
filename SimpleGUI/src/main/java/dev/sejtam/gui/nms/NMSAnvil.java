@@ -5,6 +5,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -59,6 +60,7 @@ public class NMSAnvil {
         }
     }
 
+    @Nullable
     public Inventory toBukkitInventory(@NotNull Object container) {
         try {
             return ((InventoryView)getBukkitView.invoke(container)).getTopInventory();
@@ -68,6 +70,7 @@ public class NMSAnvil {
         }
     }
 
+    @Nullable
     public Object newContainerAnvil(@NotNull Player player) {
         try {
             final Object nmsPlayer = NMSPlayer.toNMS(player);

@@ -19,6 +19,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,7 @@ public class SimpleInventory {
         updateInventory();
     }
 
-    public SimpleInventory(@NotNull Player player, @NotNull Rows rows, @NotNull String title, SimpleInventory returnInventory) {
+    public SimpleInventory(@NotNull Player player, @NotNull Rows rows, @NotNull String title, @Nullable SimpleInventory returnInventory) {
         this(player, rows, title);
 
         if (returnInventory == null)
@@ -211,12 +212,12 @@ public class SimpleInventory {
 
     // Item getter methods
     @NotNull
-    public ItemStack getDefaultGlass() {
+    protected ItemStack getDefaultGlass() {
         return new ItemBuilder(new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14)).setName(" ").build();
     }
 
     @NotNull
-    public ItemStack getDefaultReturnButton() {
+    protected ItemStack getDefaultReturnButton() {
         return new ItemBuilder(Material.COMPASS).setName("&4&lBack").build();
     }
 
